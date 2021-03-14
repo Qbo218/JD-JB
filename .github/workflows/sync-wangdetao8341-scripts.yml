@@ -26,7 +26,7 @@ jobs:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/wangdetao8341/NewCenturyWubi.git"
-          source_branch: "master"
+          source_repo: "https://github.com/wangdetao8341/My-Actions.git"
+          source_branch: "dev"
           destination_branch: "JD-wangdetao8341"
           github_token: ${{ secrets.PAT }}

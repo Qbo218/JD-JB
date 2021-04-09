@@ -1,14 +1,14 @@
 /*
 
-tgchannel：https://t.me/ZhiYi_Script
-github：https://github.com/ZhiYi-N/script
+tgchannel：https://t.me/Ariszy_Script
+github：https://github.com/Ariszy/script
 转载给我留个名字，谢谢
 
 
 邀请码：1980436898
 我的--输入邀请码，立得一元，直接提现，谢谢
 
-作者：执意ZhiYi-N
+作者：执意Ariszy
 目前包含：
 签到
 开首页宝箱
@@ -31,18 +31,18 @@ done 农场离线奖励(农场宝箱开完后，需要进农场再运行脚本�
 hostname = *.snssdk.com
 #圈x
 [rewrite local]
-\/score_task\/v1\/task\/(sign_in|get_read_bonus) url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js
-\/ttgame\/game_farm\/home_info url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js
+\/score_task\/v1\/task\/(sign_in|get_read_bonus) url script-request-header https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js
+\/ttgame\/game_farm\/home_info url script-request-header https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js
 [task]
-5,35 8-23 * * * https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版, enabled=true
+5,35 8-23 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版, enabled=true
 #loon
-http-request \/score_task\/v1\/task\/(sign_in|get_read_bonus) script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版sign
-http-request \/ttgame\/game_farm\/home_info script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版farm
-cron "5,35 8-23 * * *" script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版
+http-request \/score_task\/v1\/task\/(sign_in|get_read_bonus) script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版sign
+http-request \/ttgame\/game_farm\/home_info script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版farm
+cron "5,35 8-23 * * *" script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版
 #surge
-jrttsign = type=http-request,pattern=\/score_task\/v1\/task\/(sign_in|get_read_bonus),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
-jrttfarm = type=http-request,pattern=\/ttgame\/game_farm\/home_info,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
-jrtt = type=cron,cronexp="5,35 8-23 * * *",wake-system=1,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
+jrttsign = type=http-request,pattern=\/score_task\/v1\/task\/(sign_in|get_read_bonus),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
+jrttfarm = type=http-request,pattern=\/ttgame\/game_farm\/home_info,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
+jrtt = type=cron,cronexp="5,35 8-23 * * *",wake-system=1,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
 */
 
 const jsname='今日头条极速版'

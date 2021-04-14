@@ -22,18 +22,6 @@
 
 
 
-#京东超市-大转盘
-3 10 * * *  node /scripts/z_marketLottery.js >> /scripts/logs/z_marketLottery.log 2>&1
-#超级品类日
-13 8,10 8-15 3 *  node /scripts/z_superDay.js >> /scripts/logs/z_superDay.log 2>&1
-#美的家电节
-15 10 10-31 3 *  node /scripts/z_unionPoster.js >> /scripts/logs/z_unionPoster.log 2>&1
-#京东众筹-众筹许愿池
-10 10,15 13-20 3 *  node /scripts/z_wish.js >> /scripts/logs/z_wish.log 2>&1
-#联想集卡活动
-12 15 15-29 3 *  node /scripts/z_lenovo.js >> /scripts/logs/z_lenovo.log 2>&1
-#母婴-跳一跳
-5 8,14,20 17-25 3 *  node /scripts/z_mother_jump.js >> /scripts/logs/z_mother_jump.log 2>&1
 
 
 #京喜财富岛兑换提醒

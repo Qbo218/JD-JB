@@ -1,0 +1,27 @@
+/*
+健康社区
+活动入口：京东app-边玩边赚
+更新地址：https://share.r2ray.com/dust/i-chenzhe/z_health_community.js
+============Quantumultx===============
+[task_local]
+#健康社区
+25 10-22/3 * * * https://share.r2ray.com/dust/i-chenzhe/z_health_community.js, tag=健康社区,  enabled=true
+================Loon==============
+[Script]
+cron "25 10-22/3 * * *" script-path=https://share.r2ray.com/dust/i-chenzhe/z_health_community.js,tag=健康社区
+===============Surge=================
+健康社区 = type=cron,cronexp="25 10-22/3 * * *",wake-system=1,timeout=3600,script-path=https://share.r2ray.com/dust/i-chenzhe/z_health_community.js
+============小火箭=========
+健康社区 = type=cron,script-path=https://share.r2ray.com/dust/i-chenzhe/z_health_community.js, cronexpr="25 10-22/3 * * *", timeout=3600, enable=true
+
+新增兑换环境变量
+export Z_HEALTH_EXCHANGE=‘’
+如兑换京豆请填写包含京豆的兑换关键词 例 3京东 10京豆
+如兑换非京豆物品，请尽可能填写可唯一判定的物品名称
+*/
+const $ = new Env('健康社区');
+const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+const notify = $.isNode() ? require('./sendNotify') : '';
+let cookiesArr = [], cookie = '', message = '', shareCodeList = [];
+let helpAuthor = false;//为作者助力的开关
+   var _0xod9='jsjiami.com.v6',_0x2227=[_0xod9,'w7DDqAYtwrXDhsO2w6s=','w4/Di8Oiw4LCsw==','D8Obwptowq3DiA==','RH3DuhdG','Q1lIwqchOgHCsGs=','woV+w57Cvy7Crw==','CsO7d8O2','cMOnw6HDiMOs4pedcuW1gue5leWsvOaIuuS6juWJlg==','wr87bsKyBQ==','HsO6acKtRw==','QjnCkMK9w7Q=','w7bDvsOKQMK7D316FcONw4nDu8OnPsK6w73Ck2VMwp9FUy/CqcOYw7rDj8KIJsOUfmAywoDCksKfFw==','MMO2wqXDohE=','wpgxwooxc0/DuwHDtw==','DcO1bcO2','wovCjMOpYMO1','QcO9w6LCn0AG','wrhkEsKxwpE=','QFTDrjRmwpBuw6XDrA==','XW3DlApx','dSbCkC7Duw==','w6rDq8ONW8KBUQ==','ccKqwroi','w5DDrx8lwpc=','EG3DtcOzwr3il5jDtOW3vue6iuWsr+aLhuS7i+WKqQ==','NMOBwpjDgBk=','LcKqwobDo8OmZljDq8OGKAg1w4RswqzCjcO2w7o=','w5LDmMKnw6DCr8KQAgjClw==','JxADw51odw==','extE','w6gMVcOZw4XilZdU5beG57uJ5a+r5oi15Lm05Ymz','w4/DiMKXw4zCqg==','Vx3CtMK0w7w=','cCRCwrvCsQ==','w67DusOYw6sz','BMO1E2fCgg==','cBFXwpTCvyxPwoM=','w5rDpBTCs8Oc','YsOnwovCrRw=','Xx3ClgLDuw==','a3JnMMKw','w5jDgy8hwqw=','Tghiwo3CoQ==','TWAvDMOQTMKFIMO2WsONw7LCjyLCt3A=','w5F0OXkswpV/w7xO','w5E/wo3DtEfil5/Cj+meueaLq+WNqeaWvumWqg==','wrQ6acKTJA==','wrtYFMKNwpAw','P8OgwqnCisOQ4peeM+W1iue5nOWumuaImeS4oeWJtA==','ecK4AcOsCuKWinHovI7nsbLlnqXku4fliKzoh5LliJPotarov6U=','woU1ajJY4peuNOi9gOexm+WdtuS6o+WIhOiGoeWKnOi0nOi8qw==','BMOCwrnDlQ==','SBzCpcK2w5o=','woYkwpE2SUnDoQzDh8O3QWc=','w4l6LQ==','XTtywrrCtA==','w7TDrsOWVcKpWSY9K8Oaw4XCocOBbcK7w7fCri5bwpFBEA==','P8KzwoLCvcOnLWDDqsKLJBU8','OBQVw4YMcmvDicOrLA==','wpbCqsOmw4rDjwzCgcOrKUpHC8KNfcK5MsKqwrZ6ecOiwoNFCT3DhcO9YQrClnBjw7I=','JMKrw4bDsMOk','QVzCv23Dm3TDgi7Dsw==','w53DrgotwrLDgsORw4rDvQ==','RcKkwrw9woXDicOowqU=','6K+O5q2r56Cz6YSk57+b546u5aGj5Y6Z6YWV','w7rDoDHCgMOR','HcKpwqbDtcOJ','McKawoXDm8Ou','wozDmiVubw==','T8K5wpw5wqk=','woXDlyhvRsK7woMWPHzCu8KtPcOKPHd3wp3Dqy/DlQnCrw==','G8OjKkTCsUhcbcOXwpEjMcOTw5FGPiINwqQTfApKNxjClBXDhw==','MiIyw51X','5Lqe5LqV6L2X5Zi15Lqz5Lm157qU56uK5pWR5o6n','F8OTwoHDkgM=','AcO8c8KaRw==','w5R0BHs7','WghxwrJp','eS9bwrx7','OcK5woLDo8KmI27Dq8ODKxslw6guw6rCgMOS','W1TCh0jDhQ==','O8O3d8ODKA==','wrvCvsO1w4nDqA==','E1oNwqQ1','wp0vwrwSWQ==','wq/CrsO1QMOb','cG4ULMOa','Lz3Dg8OSZw==','w6jDlMOdeMKq','w7HDiMKGw73Ctg==','ZMOrw7DCnHY=','WcO0wr5qw78=','OsKjwqnCjcKtwqUmw5jDhcOXTwHCv8KzIsKjw6bDtsK4GQ==','WinCvcK2w7zCoMKgZBrDhMKzRFzCkEjDoVxUwrzCo8OUwqs=','X1LCqFgj','ZsO0wpjCqTY=','woFVw4nCsAA=','w5jDtMOow5jClQ==','R8OAw43ColE=','dAREwrLCtQ==','ey1LwpHCpA==','Fxgbw6xV4pWJSuWRmeWwn+itpeS5qOS6quaIneajiOiuu+S4lOi/veWSg+S8le+/qOW/seWNtOS5qeS9mOOAqA==','cFrCo20=','VGrCqEnDiw==','IxACw4VE','w4XCvUMXwpI=','ZsOFwrvCrTnDvFhQw7rCg2IvwpfCpA==','YQ/Cgwc=','QcO8w6DCiFAGIw==','wrbDtxByZg==','w4/Cq8OtbcK6','wp3DhMK6fcO2','F8OyNkjCkg==','wqDDk8KvfQ==','wqkAPBLCicK5QT50acKGbHs5','U0LCsm/DmQ==','w7LDhiczwqk=','AsOPwrnDrSE=','eG3DtyzCig==','RwdawpHCgQ==','XWXCumQb','T3LClmoE','FsOLwptswqjCgMOMQ8KQw7fCu8OeQMKcwqQ0woDCiMOAUcOcTsKXYMK/wqbDtMOZw5gHOcOewrYGwq3DkcOuw6RYdMKEw6fCj8OOSsKLw5YkTxXCtxbCi8OhODkEQcKmX8Ofwq7Cq0s6J8KjJiEpw5/DrMKIwq9QXMOCQMO6fcO2wrZPLkzCh8OJwocUwrPDtMKxDibClnfCqcK+YsKcM1hPGGVsT13Cmn/Cg8O7w68jw7rCs0BrwqNscDJ/w7LDrMKCGzhjw5Zdw7Zow5TCmyRzAkjDhsOHw73Cm8KIwqzDusKiwpbCucOiCG/CrMK4wrxzwo3CnMOQwpNpw6oueFXDn2HCt8O2WGHCiSZRw4nDhMKrwp/DhsOPBcOfD316DmXCpAAWw6bDssO9TBMwKMOfwpYQAsOcwpR2BUHCvsOyHB3CjAA6w60Fw6HDpjMFw5V4wq7Dv1UzLcKtPSHDtmTCs8OTFcObbMKCwpzDsAfDlMKWRiHDs1rCjcK5Vj1AZAlQw6bCll/CrGxWw6/DhQTDmTI+w7/DkcO4KMKkw7leXsOzwqkNbUMiFMK5WcKvBsOrw4PDvcO+woo=','wpzDvsKMw5rDhcKVAsKJUCnDvFRoWCpfAcOewqTDrQYMwrBywoZTwpQePAnDnMOvWlUBwpBPw5YsVy4cw4bCr8K5PWLDrsKdE8OQfGcvTSXClMOmw6bDsMKZbihOw7VWwpgCw5nDssKHw5vCkMKEwoXChx3DhAvCu8Oow4HCpsOkLBrDtcKhN2VARjfCnXnDisK9EcOAd8OOwp4YwoBICQE=','wqLDh8K1f8OhHyJDwrvDr8KmBsKUFcKTw79Ewpdkb8O2M8OmUcKiwpjCq8KyRsOUasKEw4FQw5hQwqp4UsOXARt6wppoLQ==','LQHDjB7CvQ/Ch8KTGXLCuDTCgMK2R8K9KsOaF8OlasOrEXTDicOhwr7DlBHDscOZw4LCj8K0RDPCkMKqwowIFjQPw7DDuA==','wp/DnDN+','w5TDi8ONag==','w7vDtTDCksOt','HmIFwo0t','wpN6w4zCug==','ZMOawqtt','Fl0UwpkWw54=','fR1NwrvCkjxcwp5Hwrh2','wq0OKA==','P8OgwqnCisOQ4peeM+aKqOWIjOWFh+aNq+ODig==','RlDDripewos=','F8OzcMOlE2p/w7nCpxVW','wpXDg8K5dcO+','UVbDvw7ClA==','woHCuMKSwozDpOKVgcOy','wqxNAcKY','w4LDmMKgw6o=','w6zDr8ONRcKkQQ==','PuOApeS4seS5g+i0lOWMiA==','wp7CtMOyw4PDng==','KMOpe8OwH25zw7I=','DsOKwolpwrTDjw==','LcOhdcKfWQ==','ZRFQwqnCvC0=','HMOlLFfCtA==','EcO1eQ==','w6zDvsOZw606Yg==','KsKiwpjDuMOcbHk=','TnhcOMK3U8Kaw4I8fVnCocKKUMKx
